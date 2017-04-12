@@ -1,0 +1,14 @@
+version: "2"
+services:
+  web:
+    build: .
+    volumes:
+      - ./data:/data
+    ports:
+      - "0.0.0.0:8125:8125/udp"
+      - "0.0.0.0:80:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 10k
+    container_name: grafana-influxdb_con 
